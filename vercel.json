@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "crons": [
+    {
+      "path": "/api/cron/trinity-moderate",
+      "schedule": "0 */2 * * *"
+    },
+    {
+      "path": "/api/cron/trinity-engage",
+      "schedule": "0 */4 * * *"
+    },
+    {
+      "path": "/api/cron/trinity-publish",
+      "schedule": "0 9,15,21 * * *"
+    },
+    {
+      "path": "/api/cron/trinity-classroom",
+      "schedule": "0 10 * * 1"
+    }
+  ],
+  "env": {
+    "NEXT_PUBLIC_SUPABASE_URL": "@supabase-url",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "@supabase-anon-key",
+    "SUPABASE_SERVICE_ROLE_KEY": "@supabase-service-role",
+    "GUMLOOP_API_KEY": "@gumloop-api-key",
+    "GUMLOOP_PIPELINE_ID": "@gumloop-pipeline-id",
+    "GUMLOOP_WEBHOOK_SECRET": "@gumloop-webhook-secret",
+    "PERPLEXITY_API_KEY": "@perplexity-api-key",
+    "SKOOL_EMAIL": "@skool-email",
+    "SKOOL_PASSWORD": "@skool-password"
+  }
+}
